@@ -189,6 +189,12 @@ class ModalSheetRoute<T> extends PageRoute<T> {
   bool get _hasScopedWillPopCallback => hasScopedWillPopCallback;
 
   @override
+  void dispose() {
+    _animationController?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget buildPage(BuildContext context, Animation<double> animation,
       Animation<double> secondaryAnimation) {
     // By definition, the bottom sheet is aligned to the bottom of the page
